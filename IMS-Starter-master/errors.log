@@ -1,32 +1,9 @@
-20210129 09:36:07 INFO  [main] ims.IMS IMS.java28 - Welcome to the Inventory Management System!
-20210129 09:36:07 INFO  [main] ims.IMS IMS.java33 - Which entity would you like to use?
-20210129 09:36:07 INFO  [main] domain.Domain Domain.java27 - CUSTOMER: Information about customers
-20210129 09:36:07 INFO  [main] domain.Domain Domain.java27 - ITEM: Individual Items
-20210129 09:36:07 INFO  [main] domain.Domain Domain.java27 - ORDER: Purchases of items
-20210129 09:36:07 INFO  [main] domain.Domain Domain.java27 - STOP: To close the application
-20210129 10:45:05 INFO  [main] ims.IMS IMS.java62 - What would you like to do with customer:
-20210129 10:45:05 INFO  [main] controller.Action Action.java38 - CREATE: To save a new entity into the database
-20210129 10:45:05 INFO  [main] controller.Action Action.java38 - READ: To read an entity from the database
-20210129 10:45:05 INFO  [main] controller.Action Action.java38 - UPDATE: To change an entity already in the database
-20210129 10:45:05 INFO  [main] controller.Action Action.java38 - DELETE: To remove an entity from the database
-20210129 10:45:05 INFO  [main] controller.Action Action.java38 - RETURN: To return to domain selection
-20210129 10:45:13 INFO  [main] ims.IMS IMS.java33 - Which entity would you like to use?
-20210129 10:45:13 INFO  [main] domain.Domain Domain.java27 - CUSTOMER: Information about customers
-20210129 10:45:13 INFO  [main] domain.Domain Domain.java27 - ITEM: Individual Items
-20210129 10:45:13 INFO  [main] domain.Domain Domain.java27 - ORDER: Purchases of items
-20210129 10:45:13 INFO  [main] domain.Domain Domain.java27 - STOP: To close the application
-20210129 10:45:16 INFO  [main] ims.IMS IMS.java62 - What would you like to do with item:
-20210129 10:45:16 INFO  [main] controller.Action Action.java38 - CREATE: To save a new entity into the database
-20210129 10:45:16 INFO  [main] controller.Action Action.java38 - READ: To read an entity from the database
-20210129 10:45:16 INFO  [main] controller.Action Action.java38 - UPDATE: To change an entity already in the database
-20210129 10:45:16 INFO  [main] controller.Action Action.java38 - DELETE: To remove an entity from the database
-20210129 10:45:16 INFO  [main] controller.Action Action.java38 - RETURN: To return to domain selection
-20210129 11:40:44 ERROR [main] controller.Action Action.java54 - Invalid selection please try again
-20210129 11:40:50 ERROR [main] controller.Action Action.java54 - Invalid selection please try again
-20210129 11:40:51 ERROR [main] controller.Action Action.java54 - Invalid selection please try again
-20210129 11:40:55 INFO  [main] ims.IMS IMS.java33 - Which entity would you like to use?
-20210129 11:40:55 INFO  [main] domain.Domain Domain.java27 - CUSTOMER: Information about customers
-20210129 11:40:55 INFO  [main] domain.Domain Domain.java27 - ITEM: Individual Items
-20210129 11:40:55 INFO  [main] domain.Domain Domain.java27 - ORDER: Purchases of items
-20210129 11:40:55 INFO  [main] domain.Domain Domain.java27 - STOP: To close the application
-20210129 11:40:58 INFO  [main] ims.Runner Runner.java13 - SO LONG!
+20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java36 - id:1 first name:jordan surname:harrison
+20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java46 - Please enter a first name
+20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java48 - Please enter a surname
+20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java51 - Customer created
+20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java78 - Please enter the id of the customer you would like to delete
+20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java60 - Please enter the id of the customer you would like to update
+20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java62 - Please enter a first name
+20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java64 - Please enter a surname
+20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java67 - Customer Updated
