@@ -1,9 +1,23 @@
-20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java36 - id:1 first name:jordan surname:harrison
-20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java46 - Please enter a first name
-20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java48 - Please enter a surname
-20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java51 - Customer created
-20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java78 - Please enter the id of the customer you would like to delete
-20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java60 - Please enter the id of the customer you would like to update
-20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java62 - Please enter a first name
-20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java64 - Please enter a surname
-20210129 14:58:55 INFO  [main] controller.CustomerController CustomerController.java67 - Customer Updated
+20210201 16:49:15 INFO  [main] ims.IMS IMS.java33 - Welcome to the Inventory Management System!
+20210201 16:49:15 INFO  [main] ims.IMS IMS.java38 - Which entity would you like to use?
+20210201 16:49:15 INFO  [main] domain.Domain Domain.java27 - CUSTOMER: Information about customers
+20210201 16:49:15 INFO  [main] domain.Domain Domain.java27 - ITEM: Individual Items
+20210201 16:49:15 INFO  [main] domain.Domain Domain.java27 - ORDER: Purchases of items
+20210201 16:49:15 INFO  [main] domain.Domain Domain.java27 - STOP: To close the application
+20210201 16:49:18 INFO  [main] ims.IMS IMS.java68 - What would you like to do with item:
+20210201 16:49:18 INFO  [main] controller.Action Action.java38 - CREATE: To save a new entity into the database
+20210201 16:49:18 INFO  [main] controller.Action Action.java38 - READ: To read an entity from the database
+20210201 16:49:18 INFO  [main] controller.Action Action.java38 - UPDATE: To change an entity already in the database
+20210201 16:49:18 INFO  [main] controller.Action Action.java38 - DELETE: To remove an entity from the database
+20210201 16:49:18 INFO  [main] controller.Action Action.java38 - RETURN: To return to domain selection
+20210201 16:49:20 INFO  [main] controller.ItemController ItemController.java44 - Please enter a name
+20210201 16:49:24 INFO  [main] controller.ItemController ItemController.java46 - Please enter a value
+20210201 16:49:27 DEBUG [main] dao.ItemsDAO ItemsDAO.java79 - java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values) VALUES ('Baseball', 2)' at line 1
+20210201 16:49:27 ERROR [main] dao.ItemsDAO ItemsDAO.java80 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values) VALUES ('Baseball', 2)' at line 1
+20210201 16:49:27 INFO  [main] controller.ItemController ItemController.java49 - Item created
+20210201 16:49:27 INFO  [main] ims.IMS IMS.java68 - What would you like to do with item:
+20210201 16:49:27 INFO  [main] controller.Action Action.java38 - CREATE: To save a new entity into the database
+20210201 16:49:27 INFO  [main] controller.Action Action.java38 - READ: To read an entity from the database
+20210201 16:49:27 INFO  [main] controller.Action Action.java38 - UPDATE: To change an entity already in the database
+20210201 16:49:27 INFO  [main] controller.Action Action.java38 - DELETE: To remove an entity from the database
+20210201 16:49:27 INFO  [main] controller.Action Action.java38 - RETURN: To return to domain selection
