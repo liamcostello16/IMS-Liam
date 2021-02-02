@@ -62,7 +62,7 @@ public class ItemController implements CrudController<Items>{
 		LOGGER.info("Please enter a Value");
 		Long Value = utils.getLong();
 		Items item = itemsDAO.update(new Items(id, Name, Value));
-		LOGGER.info("Customer Updated");
+		LOGGER.info("Item Updated");
 		return item;
 	}
 

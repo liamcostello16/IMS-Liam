@@ -11,9 +11,13 @@ CREATE TABLE IF NOT EXISTS `ims`.`customers` (
     `surname` VARCHAR(40) DEFAULT NULL,
     PRIMARY KEY (`id`)
 );
+
+
+
 CREATE TABLE IF NOT EXISTS `ims`.`item` (
 `item_id` int(11) NOT NULL AUTO_INCREMENT,
  `item_name` char(50) NOT NULL,
-`values` int(11) NOT NULL,
+`total` int(11) NOT NULL,
 PRIMARY KEY (`item_id`)
 );
+

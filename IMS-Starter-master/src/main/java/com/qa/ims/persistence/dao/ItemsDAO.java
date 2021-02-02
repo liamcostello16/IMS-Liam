@@ -22,7 +22,7 @@ public class ItemsDAO implements Dao<Items>{
 	public Items modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("item_id");
 		String Name = resultSet.getString("item_name");
-		Long Value = resultSet.getLong("values");
+		Long Value = resultSet.getLong("total");
 		return new Items(id, Name, Value);
 	}
 
@@ -70,7 +70,7 @@ public class ItemsDAO implements Dao<Items>{
 	public Items create(Items item) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO item(item_name, values) VALUES (?, ?)");) {
+						.prepareStatement("INSERT INTO item(item_name, total) VALUES (?, ?)");) {
 			statement.setString(1, item.getName());
 			statement.setLong(2, item.getValue());
 			statement.executeUpdate();
@@ -109,7 +109,7 @@ public class ItemsDAO implements Dao<Items>{
 	public Items update(Items item) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE item SET item_name = ?, values = ? WHERE item_id = ?");) {
+						.prepareStatement("UPDATE item SET item_name = ?, total = ? WHERE item_id = ?");) {
 			statement.setString(1, item.getName());
 			statement.setLong(2, item.getValue());
 			statement.setLong(3, item.getId());

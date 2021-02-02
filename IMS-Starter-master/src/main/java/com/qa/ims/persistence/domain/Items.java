@@ -11,10 +11,10 @@ public class Items {
 		this.setValue(price);
 	}
 
-	public Items(Long id, String item, Long price) {
+	public Items(Long id, String item, Long i) {
 		this.setId(id);
 		this.setName(item);
-		this.setValue(price);
+		this.setValue(i);
 	}
 
 	public Long getId() {
