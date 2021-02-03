@@ -70,20 +70,18 @@ public class TestControllerTest {
 		
 		Long id = 1L;
 		
-		Long total = (long) 20;
+		Long total = (long) 30;
 		
 		Items updated = new Items(id, "baseball", total);
 
-		Mockito.when(this.utils.getLong()).thenReturn(1L);
+		Mockito.when(this.utils.getLong()).thenReturn(updated.getId(), updated.getValue());
 		Mockito.when(this.utils.getString()).thenReturn(updated.getName());
-		Mockito.when(this.utils.getLong()).thenReturn(updated.getValue());
 		Mockito.when(this.dao.update(updated)).thenReturn(updated);
 
 		assertEquals(updated, this.controller.update());
 
-		Mockito.verify(this.utils, Mockito.times(1)).getLong();
-		Mockito.verify(this.utils, Mockito.times(2)).getString();
-		Mockito.verify(this.utils, Mockito.times(3)).getLong();
+		Mockito.verify(this.utils, Mockito.times(2)).getLong();
+		Mockito.verify(this.utils, Mockito.times(1)).getString();
 		Mockito.verify(this.dao, Mockito.times(1)).update(updated);
 	}
 

@@ -1,9 +1,12 @@
-20210202 15:23:43 INFO  [main] controller.ItemController ItemController.java34 - id:1 first name:baseball Value:20
-20210202 15:23:43 INFO  [main] controller.ItemController ItemController.java44 - Please enter a name
-20210202 15:23:43 INFO  [main] controller.ItemController ItemController.java46 - Please enter a value
-20210202 15:23:43 INFO  [main] controller.ItemController ItemController.java49 - Item created
-20210202 15:23:43 INFO  [main] controller.ItemController ItemController.java76 - Please enter the id of the item you would like to delete
-20210202 15:23:43 INFO  [main] controller.ItemController ItemController.java58 - Please enter the id of the Item you would like to update
-20210202 15:23:43 INFO  [main] controller.ItemController ItemController.java60 - Please enter a name
-20210202 15:23:43 INFO  [main] controller.ItemController ItemController.java62 - Please enter a Value
-20210202 15:23:43 INFO  [main] controller.ItemController ItemController.java65 - Item Updated
+20210203 14:09:49 DEBUG [main] utils.DBUtils DBUtils.java62 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Schema "SQL_IMS" already exists; SQL statement:
+CREATE SCHEMA sql_ims [90078-200]
+20210203 14:09:49 DEBUG [main] utils.DBUtils DBUtils.java62 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Schema "SQL_IMS" already exists; SQL statement:
+CREATE SCHEMA sql_ims [90078-200]
+20210203 14:09:49 DEBUG [main] utils.DBUtils DBUtils.java62 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Schema "SQL_IMS" already exists; SQL statement:
+CREATE SCHEMA sql_ims [90078-200]
+20210203 14:09:49 DEBUG [main] utils.DBUtils DBUtils.java62 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Schema "SQL_IMS" already exists; SQL statement:
+CREATE SCHEMA sql_ims [90078-200]
+20210203 14:09:49 DEBUG [main] utils.DBUtils DBUtils.java62 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Schema "SQL_IMS" already exists; SQL statement:
+CREATE SCHEMA sql_ims [90078-200]
+20210203 14:09:49 DEBUG [main] utils.DBUtils DBUtils.java62 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Schema "SQL_IMS" already exists; SQL statement:
+CREATE SCHEMA sql_ims [90078-200]

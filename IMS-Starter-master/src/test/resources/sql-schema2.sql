@@ -1,0 +1,10 @@
+CREATE SCHEMA sql_ims;
+
+DROP TABLE IF EXISTS `item`;
+
+CREATE TABLE IF NOT EXISTS `item` (
+    `item_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `item_name` VARCHAR(40) DEFAULT NULL,
+    `total` INT(11) DEFAULT NULL,
+    PRIMARY KEY (`item_id`)
+);
