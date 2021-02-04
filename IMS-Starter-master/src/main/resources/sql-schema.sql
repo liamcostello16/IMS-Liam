@@ -12,8 +12,6 @@ CREATE TABLE IF NOT EXISTS `ims`.`customers` (
     PRIMARY KEY (`id`)
 );
 
-
-
 CREATE TABLE IF NOT EXISTS `ims`.`item` (
 `item_id` int(11) NOT NULL AUTO_INCREMENT,
  `item_name` char(50) NOT NULL,
@@ -21,3 +19,8 @@ CREATE TABLE IF NOT EXISTS `ims`.`item` (
 PRIMARY KEY (`item_id`)
 );
 
+CREATE TABLE IF NOT EXISTS `ims`.`orders` (
+`Order_ID` int(11) NOT NULL AUTO_INCREMENT,
+ `Customer_ID` int(50) NOT NULL,
+PRIMARY KEY (`Order_ID`),
+);
