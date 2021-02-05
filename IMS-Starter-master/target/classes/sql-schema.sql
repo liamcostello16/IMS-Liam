@@ -22,5 +22,11 @@ PRIMARY KEY (`item_id`)
 CREATE TABLE IF NOT EXISTS `ims`.`orders` (
 `Order_ID` int(11) NOT NULL AUTO_INCREMENT,
  `Customer_ID` int(50) NOT NULL,
-PRIMARY KEY (`Order_ID`),
+PRIMARY KEY (`Order_ID`)
+);
+
+CREATE TABLE IF NOT EXISTS `ims`.`ordersI` (
+`OrderI_ID` int(11) NOT NULL AUTO_INCREMENT,
+ `Item_key` int(50) NOT NULL,
+PRIMARY KEY (`OrderI_ID`)
 );

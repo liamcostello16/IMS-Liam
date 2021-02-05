@@ -11,29 +11,30 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qa.ims.persistence.domain.Orders;
+import com.qa.ims.persistence.domain.OrderItems;
 import com.qa.ims.utils.DBUtils;
 
-public class OrdersDAO implements Dao<Orders>{
+public class OrderItemsDAO implements Dao<OrderItems>{
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	@Override
-	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
-		Long id = resultSet.getLong("Order_ID");
-		Long CustomerID = resultSet.getLong("Customer_ID");
-		return new Orders(id, CustomerID);
+	public OrderItems modelFromResultSet(ResultSet resultSet) throws SQLException {
+		Long id = resultSet.getLong("OrderI_ID");
+		Long ItemID = resultSet.getLong("Item_key");
+		return new OrderItems(id, ItemID);
 	}
+
 	/**
 	 * Reads all customers from the database
 	 * 
 	 * @return A list of customers
 	 */
 	@Override
-	public List<Orders> readAll() {
+	public List<OrderItems> readAll() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders");) {
-			List<Orders> items = new ArrayList<>();
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM ordersI");) {
+			List<OrderItems> items = new ArrayList<>();
 			while (resultSet.next()) {
 				items.add(modelFromResultSet(resultSet));
 			}
@@ -45,10 +46,10 @@ public class OrdersDAO implements Dao<Orders>{
 		return new ArrayList<>();
 	}
 
-	public Orders readLatest() {
+	public OrderItems readLatest() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders ORDER BY Order_ID DESC LIMIT 1");) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM ordersI ORDER BY OrderI_ID DESC LIMIT 1");) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -64,11 +65,11 @@ public class OrdersDAO implements Dao<Orders>{
 	 * @param customer - takes in a customer object. id will be ignored
 	 */
 	@Override
-	public Orders create(Orders order) {
+	public OrderItems create(OrderItems order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO orders (Customer_ID) SELECT id FROM customers WHERE id=?");) {
-			statement.setLong(1, order.getCustomerID());
+						.prepareStatement("INSERT INTO ordersI (Item_key) SELECT item_id FROM item WHERE item_id=?");) {
+			statement.setLong(1, order.getItemID());
 			statement.executeUpdate();		
 			return readLatest();
 		} catch (Exception e) {
@@ -79,9 +80,9 @@ public class OrdersDAO implements Dao<Orders>{
 	}
 
 	@Override
-	public Orders read(Long id) {
+	public OrderItems read(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("SELECT * FROM orders WHERE Order_ID = ?");) {
+				PreparedStatement statement = connection.prepareStatement("SELECT * FROM ordersI WHERE OrderI_ID = ?");) {
 			statement.setLong(1, id);
 			try (ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
@@ -103,11 +104,11 @@ public class OrdersDAO implements Dao<Orders>{
 	 */
 	
 	@Override
-	public Orders update(Orders order) {
+	public OrderItems update(OrderItems order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE orders SET Customer_ID = ? WHERE Order_ID = ?");) {
-			statement.setLong(1, order.getCustomerID());
+						.prepareStatement("UPDATE ordersI SET Item_key = ? WHERE OrderI_ID = ?");) {
+			statement.setLong(1, order.getItemID());
 			statement.setLong(2, order.getId());
 			statement.executeUpdate();
 			return read(order.getId());
@@ -126,7 +127,7 @@ public class OrdersDAO implements Dao<Orders>{
 	@Override
 	public int delete(long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("DELETE FROM orders WHERE Order_ID = ?");) {
+				PreparedStatement statement = connection.prepareStatement("DELETE FROM ordersI WHERE OrderI_ID = ?");) {
 			statement.setLong(1, id);
 			return statement.executeUpdate();
 		} catch (Exception e) {
