@@ -93,7 +93,6 @@ public class OrdersDAO implements Dao<Orders>{
 		}
 		return null;
 	}
-
 	/**
 	 * Updates a customer in the database
 	 * 
@@ -101,13 +100,12 @@ public class OrdersDAO implements Dao<Orders>{
 	 *                 update that customer in the database
 	 * @return
 	 */
-	
 	@Override
 	public Orders update(Orders order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE orders SET Customer_ID = ? WHERE Order_ID = ?");) {
-			statement.setLong(1, order.getCustomerID());
+						.prepareStatement("UPDATE orders SET Item_key=? WHERE Order_ID=?");) {
+			statement.setLong(1, order.getItemId());
 			statement.setLong(2, order.getId());
 			statement.executeUpdate();
 			return read(order.getId());
@@ -118,6 +116,7 @@ public class OrdersDAO implements Dao<Orders>{
 		return null;
 	}
 
+	
 	/**
 	 * Deletes a customer in the database
 	 * 

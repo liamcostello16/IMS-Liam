@@ -4,6 +4,7 @@ public class Orders {
 	private Long id;
 	private Long CustomerID;
 	private String Name;
+	private Long itemid;
 	
 	public Orders(Long ID, Long CustomerID) {
 		this.setId(ID);
@@ -12,7 +13,14 @@ public class Orders {
 
 	public Orders(Long CustomerID) {
 		this.setCustomerID(CustomerID);
+		this.setItemId(CustomerID);
 	}
+	
+	public Orders() {
+		this.setCustomerID(CustomerID);
+		this.setItemId(CustomerID);
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -29,6 +37,13 @@ public class Orders {
 		this.CustomerID = total;
 	}
 
+	public Long getItemId() {
+		return itemid;
+	}
+
+	public void setItemId(Long id) {
+		this.itemid = id;
+	}
 	@Override
 	public String toString() {
 		return "id:" + id + "Customer ID " + CustomerID;
