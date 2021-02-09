@@ -6,14 +6,22 @@ public class Orders {
 	private String Name;
 	private Long itemid;
 	
+	public Orders(Long ID, Long CustomerID, Long ItemID) {
+		this.setId(ID);
+		this.setItemId(CustomerID);
+		this.setCustomerID(ItemID);
+	}
+	
 	public Orders(Long ID, Long CustomerID) {
 		this.setId(ID);
+		this.setItemId(CustomerID);
 		this.setCustomerID(CustomerID);
 	}
 
 	public Orders(Long CustomerID) {
 		this.setCustomerID(CustomerID);
 		this.setItemId(CustomerID);
+		this.setId(CustomerID);
 	}
 	
 	public Orders() {

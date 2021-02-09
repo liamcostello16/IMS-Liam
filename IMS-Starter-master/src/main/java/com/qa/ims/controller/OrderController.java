@@ -56,25 +56,36 @@ public class OrderController implements CrudController<Orders>{
 	 */
 	@Override
 	public Orders update() {
-		Orders order = new Orders();
+		Orders order = null;
 		LOGGER.info("Please enter the id of the Order you would like to update");
 		Long id = utils.getLong();
 		
 		LOGGER.info("Would you like to add a item yes or no");
-		String Customer_ID = utils.getString();
-
 		
-
-			LOGGER.info("What item do you want added please enter the ID:");
-			Long Item = utils.getLong();
+		String str = utils.getString();
+		
+		 switch(str) 
+	        { 
+	            case "yes": 
+	        		LOGGER.info("What item do you want added please enter the ID:");
+	        		Long Item = utils.getLong();
+	        		order = new Orders(id, Item);
+	        		ordersDAO.update(order);
+	                break; 
+	            case "no": 
+	            	
+	    			order = new Orders(id);
+	    			ordersDAO.DeleteItem(order);
+	    			
+	                break; 
+	   
+	            default: 	    				
+	        }
+		 LOGGER.info("Order Updated");
+		 return order;
 			
-			order = ordersDAO.update(new Orders(id, Item));
 	
 
-		
-		
-		LOGGER.info("Order Updated");
-		return order;
 
 	}
 

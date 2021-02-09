@@ -21,6 +21,7 @@ public class OrdersDAO implements Dao<Orders>{
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("Order_ID");
 		Long CustomerID = resultSet.getLong("Customer_ID");
+
 		return new Orders(id, CustomerID);
 	}
 	/**
@@ -104,11 +105,11 @@ public class OrdersDAO implements Dao<Orders>{
 	public Orders update(Orders order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE orders SET Item_key=? WHERE Order_ID=?");) {
+						.prepareStatement("INSERT INTO ordersI(Item_key, OrderID) VALUES (?, ?)");) {
 			statement.setLong(1, order.getItemId());
 			statement.setLong(2, order.getId());
 			statement.executeUpdate();
-			return read(order.getId());
+			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
@@ -116,6 +117,19 @@ public class OrdersDAO implements Dao<Orders>{
 		return null;
 	}
 
+	public Orders DeleteItem(Orders order) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection
+						.prepareStatement("DELETE FROM ordersI WHERE OrderID = ?");) {
+			statement.setLong(1, order.getId());
+			statement.executeUpdate();
+			return readLatest();
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		return null;
+	}
 	
 	/**
 	 * Deletes a customer in the database
