@@ -101,8 +101,8 @@ public class OrdersDAO implements Dao<Orders>{
 	 *                 update that customer in the database
 	 * @return
 	 */
-	@Override
-	public Orders update(Orders order) {
+
+	public Orders AddItem(Orders order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
 						.prepareStatement("INSERT INTO ordersI(Item_key, OrderID) VALUES (?, ?)");) {
@@ -148,4 +148,11 @@ public class OrdersDAO implements Dao<Orders>{
 		}
 		return 0;
 	}
+	@Override
+	public Orders update(Orders t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
 }

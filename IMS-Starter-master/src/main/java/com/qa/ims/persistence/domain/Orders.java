@@ -1,10 +1,12 @@
 package com.qa.ims.persistence.domain;
 
+import java.util.List;
+
 public class Orders {
 	private Long id;
 	private Long CustomerID;
-	private String Name;
 	private Long itemid;
+	private List<Items> items;
 	
 	public Orders(Long ID, Long CustomerID, Long ItemID) {
 		this.setId(ID);
@@ -24,9 +26,9 @@ public class Orders {
 		this.setId(CustomerID);
 	}
 	
+	
+	
 	public Orders() {
-		this.setCustomerID(CustomerID);
-		this.setItemId(CustomerID);
 	}
 	
 	public Long getId() {
@@ -54,7 +56,7 @@ public class Orders {
 	}
 	@Override
 	public String toString() {
-		return "id:" + id + "Customer ID " + CustomerID;
+		return "id:" + id + "Customer ID " + CustomerID + "Item ID: " + itemid;
 	}
 
 	@Override
@@ -63,6 +65,7 @@ public class Orders {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((CustomerID == null) ? 0 : CustomerID.hashCode());
+		result = prime * result + ((itemid == null) ? 0 : itemid.hashCode());
 		return result;
 	}
 
@@ -84,6 +87,11 @@ public class Orders {
 			if (other.CustomerID != null)
 				return false;
 		} else if (!CustomerID.equals(other.CustomerID))
+			return false;
+		if (itemid == null) {
+			if (other.itemid != null)
+				return false;
+		} else if (!itemid.equals(other.itemid))
 			return false;
 		return true;
 	}
