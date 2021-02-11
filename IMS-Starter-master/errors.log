@@ -1,7 +1,5 @@
-20210211 16:39:16 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
-20210211 16:39:16 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
-20210211 16:39:16 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
-20210211 16:39:16 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
-20210211 16:39:16 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
-20210211 16:39:17 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
-20210211 16:39:17 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
+20210211 17:35:30 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20210211 17:35:30 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20210211 17:35:30 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20210211 17:35:30 DEBUG [main] dao.CustomerDAO CustomerDAO.java79 - java.sql.SQLException: No suitable driver found for 
+20210211 17:35:30 ERROR [main] dao.CustomerDAO CustomerDAO.java80 - No suitable driver found for 

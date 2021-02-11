@@ -8,3 +8,4 @@ src/main/java/com/qa/ims/persistence/domain/Orders.java
 src/main/java/com/qa/ims/IMS.java
 src/main/java/com/qa/ims/persistence/domain/Items.java
 src/main/java/com/qa/ims/controller/OrderController.java
+src/test/java/com/qa/ims/persistence/dao/CustomerDAOFailtTest.java
