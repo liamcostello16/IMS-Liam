@@ -1,20 +1,7 @@
-20210210 17:23:47 INFO  [main] ims.IMS IMS.java38 - Welcome to the Inventory Management System!
-20210210 17:23:47 INFO  [main] ims.IMS IMS.java43 - Which entity would you like to use?
-20210210 17:23:47 INFO  [main] domain.Domain Domain.java27 - CUSTOMER: Information about customers
-20210210 17:23:47 INFO  [main] domain.Domain Domain.java27 - ITEM: Individual Items
-20210210 17:23:47 INFO  [main] domain.Domain Domain.java27 - ORDER: Purchases of items
-20210210 17:23:47 INFO  [main] domain.Domain Domain.java27 - STOP: To close the application
-20210210 17:24:22 INFO  [main] ims.IMS IMS.java74 - What would you like to do with order:
-20210210 17:24:22 INFO  [main] controller.Action Action.java38 - CREATE: To save a new entity into the database
-20210210 17:24:22 INFO  [main] controller.Action Action.java38 - READ: To read an entity from the database
-20210210 17:24:22 INFO  [main] controller.Action Action.java38 - UPDATE: To change an entity already in the database
-20210210 17:24:22 INFO  [main] controller.Action Action.java38 - DELETE: To remove an entity from the database
-20210210 17:24:22 INFO  [main] controller.Action Action.java38 - RETURN: To return to domain selection
-20210210 17:24:25 DEBUG [main] dao.OrdersDAO OrdersDAO.java43 - java.sql.SQLException: Column 'Order_ID' not found.
-20210210 17:24:25 ERROR [main] dao.OrdersDAO OrdersDAO.java44 - Column 'Order_ID' not found.
-20210210 17:24:25 INFO  [main] ims.IMS IMS.java74 - What would you like to do with order:
-20210210 17:24:25 INFO  [main] controller.Action Action.java38 - CREATE: To save a new entity into the database
-20210210 17:24:25 INFO  [main] controller.Action Action.java38 - READ: To read an entity from the database
-20210210 17:24:25 INFO  [main] controller.Action Action.java38 - UPDATE: To change an entity already in the database
-20210210 17:24:25 INFO  [main] controller.Action Action.java38 - DELETE: To remove an entity from the database
-20210210 17:24:25 INFO  [main] controller.Action Action.java38 - RETURN: To return to domain selection
+20210211 15:45:14 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
+20210211 15:45:14 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
+20210211 15:45:15 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
+20210211 15:45:15 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
+20210211 15:45:15 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
+20210211 15:45:15 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists
+20210211 15:45:15 DEBUG [main] utils.DBUtils DBUtils.java62 - java.sql.SQLException: Can't create database 'sql_ims'; database exists

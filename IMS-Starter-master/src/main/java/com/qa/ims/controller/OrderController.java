@@ -38,11 +38,11 @@ public class OrderController implements CrudController<Orders>{
 	 */
 	@Override
 	public Orders create() {
-		Orders order = new Orders();
+	
 		LOGGER.info("Please enter a ID");
 		Long Value = utils.getLong();
-		order.setCustomerID(Value);
-		 order = ordersDAO.create(order);
+
+		Orders order = ordersDAO.create(new Orders(Value));
 		LOGGER.info("Order created");
 		return order;
 	}
@@ -53,6 +53,7 @@ public class OrderController implements CrudController<Orders>{
 	@Override
 	public Orders update() {
 		Orders order = null;
+		Long Item = 0L;
 		LOGGER.info("Please enter the id of the Order you would like to update");
 		Long id = utils.getLong();
 		
@@ -64,7 +65,7 @@ public class OrderController implements CrudController<Orders>{
 	        { 
 	            case "yes": 
 	        		LOGGER.info("What item do you want added please enter the ID:");
-	        		Long Item = utils.getLong();
+	        		Item = utils.getLong();
 	        		order = new Orders(id, Item);
 	        		ordersDAO.AddItem(order);
 	                break; 

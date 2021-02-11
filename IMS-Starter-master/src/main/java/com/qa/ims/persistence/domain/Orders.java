@@ -2,11 +2,14 @@ package com.qa.ims.persistence.domain;
 
 import java.util.List;
 
+import com.qa.ims.persistence.dao.ItemsDAO;
+
 public class Orders {
 	private Long id;
 	private Long CustomerID;
 	private Long itemid;
 	private List<Items> items;
+
 	
 	public Orders(Long ID, Long CustomerID, Long ItemID) {
 		this.setId(ID);
@@ -20,12 +23,19 @@ public class Orders {
 		this.setCustomerID(CustomerID);
 	}
 
-	public Orders(Long CustomerID) {
-		this.setCustomerID(CustomerID);
-		this.setItemId(CustomerID);
-		this.setId(CustomerID);
-	}
 	
+	public Orders(Long ID) {
+		this.setId(ID);
+		this.setItemId(ID);
+		this.setCustomerID(ID);
+	}
+
+	public Orders(Long ID, Long CustomerID, List<Items> items) {
+		this.setId(ID);
+		this.setCustomerID(CustomerID);
+		this.setId(CustomerID);
+		this.items = items;
+	}
 	
 	
 	public Orders() {
@@ -54,9 +64,18 @@ public class Orders {
 	public void setItemId(Long id) {
 		this.itemid = id;
 	}
+	
+	public List<Items> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Items> items) {
+		this.items = items;
+	}
+	
 	@Override
 	public String toString() {
-		return "id:" + id + "Customer ID " + CustomerID + "Item ID: " + itemid;
+		return "id:" + id + "Customer ID " + CustomerID +" " +", items:" + items;
 	}
 
 	@Override
@@ -66,6 +85,7 @@ public class Orders {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((CustomerID == null) ? 0 : CustomerID.hashCode());
 		result = prime * result + ((itemid == null) ? 0 : itemid.hashCode());
+		result = prime * result + ((items == null) ? 0 : items.hashCode());
 		return result;
 	}
 
@@ -87,6 +107,11 @@ public class Orders {
 			if (other.CustomerID != null)
 				return false;
 		} else if (!CustomerID.equals(other.CustomerID))
+			return false;
+		if (items == null) {
+			if (other.items != null)
+				return false;
+		} else if (!items.equals(other.items))
 			return false;
 		if (itemid == null) {
 			if (other.itemid != null)

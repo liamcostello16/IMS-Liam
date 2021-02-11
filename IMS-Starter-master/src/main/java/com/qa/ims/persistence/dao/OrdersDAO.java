@@ -11,24 +11,57 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.qa.ims.persistence.domain.Items;
 import com.qa.ims.persistence.domain.Orders;
 import com.qa.ims.utils.DBUtils;
 
 public class OrdersDAO implements Dao<Orders>{
 	public static final Logger LOGGER = LogManager.getLogger();
 
+	private ItemsDAO itemsDao;
+	private CustomerDAO customerDAO;
 	@Override
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("Order_ID");
 		Long CustomerID = resultSet.getLong("Customer_ID");
 
-		return new Orders(id, CustomerID);
+		List<Items> item = readItems(id);
+		return new Orders(id, CustomerID, item);
+	}
+	
+	public OrdersDAO(ItemsDAO itemsDao, CustomerDAO customerDAO) {
+		super();
+		this.itemsDao = itemsDao;
+		this.customerDAO = customerDAO;
+		
 	}
 	/**
 	 * Reads all customers from the database
 	 * 
 	 * @return A list of customers
 	 */
+	
+	private List<Items> readItems(Long id) {
+		List<Items> items = new ArrayList<>();
+		List<Long> itemsID = new ArrayList<>();
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM ordersI WHERE OrderI_ID = " + id);) {
+			while (resultSet.next()) {
+				itemsID.add(resultSet.getLong("Item_key"));
+			}
+		} catch (SQLException e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		for (Long i : itemsID) {
+			items.add(this.itemsDao.read(i));
+
+		}
+		return items;
+	}
+	
+		
 	@Override
 	public List<Orders> readAll() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
@@ -68,7 +101,7 @@ public class OrdersDAO implements Dao<Orders>{
 	public Orders create(Orders order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO orders (Customer_ID) SELECT id FROM customers WHERE id=?");) {
+						.prepareStatement("INSERT INTO orders (Customer_ID) VALUES (?)");) {
 			statement.setLong(1, order.getCustomerID());
 			statement.executeUpdate();		
 			return readLatest();
