@@ -14,7 +14,7 @@ import com.qa.ims.utils.DBUtils;
 
 public class OrdersDAOTest {
 	
-	private final OrdersDAO DAO = new OrdersDAO(new ItemsDAO(), new CustomerDAO());
+	private final OrdersDAO DAO = new OrdersDAO(new ItemsDAO());
 	@Before
 	public void setup() {
 		DBUtils.connect();
@@ -64,7 +64,7 @@ public class OrdersDAOTest {
 		
 		final Orders testObject = new Orders(1L, 1L, 1L);
 		
-		assertEquals(updated, DAO.AddItem(testObject));
+		assertEquals(updated, DAO.addItem(testObject));
 	}
 	
 	@Test
@@ -75,7 +75,7 @@ public class OrdersDAOTest {
 		final Orders updated = new Orders(1L, 1L, test);
 		
 		final Orders testObject = new Orders(1L, 1L, 1L);
-		assertEquals(updated, DAO.DeleteItem(testObject));
+		assertEquals(updated, DAO.deleteItem(testObject));
 	}
 	
 	@Test

@@ -19,20 +19,18 @@ public class OrdersDAO implements Dao<Orders>{
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	private ItemsDAO itemsDao;
-	private CustomerDAO customerDAO;
 	@Override
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("Order_ID");
-		Long CustomerID = resultSet.getLong("Customer_ID");
+		Long customerID = resultSet.getLong("Customer_ID");
 
 		List<Items> item = readItems(id);
-		return new Orders(id, CustomerID, item);
+		return new Orders(id, customerID, item);
 	}
 	
-	public OrdersDAO(ItemsDAO itemsDao, CustomerDAO customerDAO) {
+	public OrdersDAO(ItemsDAO itemsDao) {
 		super();
 		this.itemsDao = itemsDao;
-		this.customerDAO = customerDAO;
 		
 	}
 	/**
@@ -135,7 +133,7 @@ public class OrdersDAO implements Dao<Orders>{
 	 * @return
 	 */
 
-	public Orders AddItem(Orders order) {
+	public Orders addItem(Orders order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
 						.prepareStatement("INSERT INTO ordersI(Item_key, OrderID) VALUES (?, ?)");) {
@@ -150,7 +148,7 @@ public class OrdersDAO implements Dao<Orders>{
 		return null;
 	}
 
-	public Orders DeleteItem(Orders order) {
+	public Orders deleteItem(Orders order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
 						.prepareStatement("DELETE FROM ordersI WHERE OrderID = ?");) {
@@ -181,11 +179,11 @@ public class OrdersDAO implements Dao<Orders>{
 		}
 		return 0;
 	}
-	@Override
+
+	
 	public Orders update(Orders t) {
-		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
+	
 }

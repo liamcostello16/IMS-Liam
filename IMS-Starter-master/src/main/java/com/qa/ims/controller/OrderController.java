@@ -14,7 +14,8 @@ public class OrderController implements CrudController<Orders>{
 
 	private OrdersDAO ordersDAO;
 	private Utils utils;
-
+	Long orderID = null;
+	
 	public OrderController(OrdersDAO ordersDAO, Utils utils) {
 		super();
 		this.ordersDAO = ordersDAO;
@@ -40,9 +41,9 @@ public class OrderController implements CrudController<Orders>{
 	public Orders create() {
 	
 		LOGGER.info("Please enter a ID");
-		Long Value = utils.getLong();
+		orderID = utils.getLong();
 
-		Orders order = ordersDAO.create(new Orders(Value));
+		Orders order = ordersDAO.create(new Orders(orderID));
 		LOGGER.info("Order created");
 		return order;
 	}
@@ -53,7 +54,7 @@ public class OrderController implements CrudController<Orders>{
 	@Override
 	public Orders update() {
 		Orders order = null;
-		Long Item = 0L;
+
 		LOGGER.info("Please enter the id of the Order you would like to update");
 		Long id = utils.getLong();
 		
@@ -65,14 +66,14 @@ public class OrderController implements CrudController<Orders>{
 	        { 
 	            case "yes": 
 	        		LOGGER.info("What item do you want added please enter the ID:");
-	        		Item = utils.getLong();
-	        		order = new Orders(id, Item);
-	        		ordersDAO.AddItem(order);
+	        		orderID = utils.getLong();
+	        		order = new Orders(id, orderID);
+	        		ordersDAO.addItem(order);
 	                break; 
 	            case "no": 
 	            	
 	    			order = new Orders(id);
-	    			ordersDAO.DeleteItem(order);
+	    			ordersDAO.deleteItem(order);
 	    			
 	                break; 
 	   

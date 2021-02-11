@@ -3,8 +3,8 @@ package com.qa.ims.persistence.domain;
 public class Items {
 
 	private Long id;
-	private String Name;
-	private Long Value;
+	private String name;
+	private Long value;
 
 	public Items(String item, Long price) {
 		this.setName(item);
@@ -26,33 +26,33 @@ public class Items {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		this.Name = name;
+		this.name = name;
 	}
 
 	public Long getValue() {
-		return Value;
+		return value;
 	}
 
 	public void setValue(Long total) {
-		this.Value = total;
+		this.value = total;
 	}
 
 	@Override
 	public String toString() {
-		return "id:" + id + " first name:" + Name + " Value:" + Value;
+		return "id:" + id + " first name:" + name + " Value:" + value;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((Value == null) ? 0 : Value.hashCode());
+		result = prime * result + ((value == null) ? 0 : value.hashCode());
 		return result;
 	}
 
@@ -75,10 +75,10 @@ public class Items {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (Value == null) {
-			if (other.Value != null)
+		if (value == null) {
+			if (other.value != null)
 				return false;
-		} else if (!Value.equals(other.Value))
+		} else if (!value.equals(other.value))
 			return false;
 		return true;
 	}
