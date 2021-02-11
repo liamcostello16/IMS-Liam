@@ -1,1 +1,10 @@
 /target/
+src/main/java/com/qa/ims/controller/ItemController.java
+src/test/java/com/qa/ims/persistence/dao/OrdersDAOTest.java
+src/main/java/com/qa/ims/persistence/dao/OrdersDAO.java
+src/main/java/com/qa/ims/persistence/dao/ItemsDAO.java
+src/main/java/com/qa/ims/controller/CrudController.java
+src/main/java/com/qa/ims/persistence/domain/Orders.java
+src/main/java/com/qa/ims/IMS.java
+src/main/java/com/qa/ims/persistence/domain/Items.java
+src/main/java/com/qa/ims/controller/OrderController.java
