@@ -1,1 +1,42 @@
-hhhhhh
+Software Requirements
+Java - jdk-14.0.2
+Maven
+GitBash
+local database with sql or gcp.
+
+To run .jar in command line in the folder where it is type:
+java -jar ims-0.0.1-jar-with-dependencies.jar
+
+This will run the application on console allowing you to not have to run it in eclipse.
+
+
+Which entity would you like to use?
+CUSTOMER: Information about customers
+ITEM: Individual Items
+ORDER: Purchases of items
+STOP: To close the application
+
+Here are the options depending what table and object you want to make as a user.
+
+Going into customer will allow for the creation of a customer into the database but also a instance of customer as a object in java.
+the same goes for order and item and inside these you can do the same as customer.
+
+What would you like to do with order:
+CREATE: To save a new entity into the database
+READ: To read an entity from the database
+UPDATE: To change an entity already in the database
+DELETE: To remove an entity from the database
+RETURN: To return to domain selection
+
+The only different out of all of them is that the update of order adds a item to a order and deletes a item from a order.
+the customer can use this and follow the instructions in update to do this processs.
+
+To do testing junits were used on each class throughout the project to activate this right click on the class you want to test
+and run it as junit.
+
+To download the project pull main branch with gitbash from the repoisitory.
+
+To test coverage use sonar in the project folder with git bash and run mvn sonar:sonar.
+
+Jira board link to see project management: https://liamc.atlassian.net/jira/software/c/projects/IMS/boards/2/roadmap.
+
